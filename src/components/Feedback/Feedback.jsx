@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Feedback = ({
   value: { good = 0, neutral = 0, bad = 0 },
-  totalFeedback,
+  totalFeedback = 0,
 }) => {
   // Обчислення відсотку позитивних відгуків
   const positiveFeedback = Math.round(((good + neutral) / totalFeedback) * 100);
@@ -13,7 +13,7 @@ const Feedback = ({
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
       <p>Total: {totalFeedback}</p>
-      <p>Positive: {positiveFeedback}%</p>
+      <p>Positive: {positiveFeedback ? positiveFeedback : 0}%</p>
     </>
   );
 };
