@@ -1,7 +1,6 @@
 .wrapper {
     display: flex;
     gap: 8px;
-    justify-content: center;
 }
 
 .wrapper button {
@@ -21,5 +20,6 @@
 }
 
 .reset {
-    margin-top: 8px;
+    color: #fffefe;
+    background-color: #494848;
 }

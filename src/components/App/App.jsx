@@ -16,6 +16,7 @@ function App() {
     return { good: 0, neutral: 0, bad: 0 };
   });
 
+  // Запис статистики відгуків до локального сховища
   useEffect(() => {
     window.localStorage.setItem('feedback', JSON.stringify(feedback));
   }, [feedback]);
@@ -27,22 +28,27 @@ function App() {
     });
   };
 
-  const defaultValue = () => setFeedback({ good: 0, neutral: 0, bad: 0 });
-
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  const resetFeedback = () => setFeedback({ good: 0, neutral: 0, bad: 0 });
+
+  // Текст для компоненту Description
+  const descrTitle = 'Sip Happens Café';
+  const descrArticle =
+    'Please leave your feedback about our service by selecting one of the options below.';
 
   return (
     <>
-      <Description />
+      <Description title={descrTitle} article={descrArticle} />
       <Options
         setValue={updateFeedback}
-        resetValue={defaultValue}
+        resetValue={resetFeedback}
         totalFeedback={totalFeedback}
       />
       {totalFeedback ? (
         <Feedback value={feedback} totalFeedback={totalFeedback} />
       ) : (
-        <Notification />
+        <Notification message={'No feedback yet'} />
       )}
     </>
   );

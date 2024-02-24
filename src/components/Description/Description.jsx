@@ -1,13 +1,17 @@
-const Description = () => {
+import PropTypes from 'prop-types';
+
+const Description = ({ title, article }) => {
   return (
     <>
-      <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+      <h1>{title}</h1>
+      <p>{article}</p>
     </>
   );
+};
+
+Description.propTypes = {
+  title: PropTypes.string,
+  article: PropTypes.string,
 };
 
 export default Description;

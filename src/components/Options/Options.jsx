@@ -1,25 +1,28 @@
-import css from './Option.module.css';
+import { wrapper, good, neutral, bad, reset } from './Options.module.css';
 import PropTypes from 'prop-types';
 
-const Options = ({ setValue, resetValue, totalFeedback }) => {
+const Options = ({ setValue, resetValue, totalFeedback = 0 }) => {
   return (
     <>
-      <div className={css.wrapper}>
-        <button className={css.good} onClick={() => setValue('good')}>
+      <div className={wrapper}>
+        {/* Кнопки опцій відгуків */}
+        <button className={good} onClick={() => setValue('good')}>
           Good
         </button>
-        <button className={css.neutral} onClick={() => setValue('neutral')}>
+        <button className={neutral} onClick={() => setValue('neutral')}>
           Neutral
         </button>
-        <button className={css.bad} onClick={() => setValue('bad')}>
+        <button className={bad} onClick={() => setValue('bad')}>
           Bad
         </button>
+
+        {/* Рендер кнопки скидання відгуків за умови їх наявності */}
+        {totalFeedback !== 0 && (
+          <button className={reset} onClick={resetValue}>
+            Reset
+          </button>
+        )}
       </div>
-      {totalFeedback !== 0 && (
-        <button className={css.reset} onClick={resetValue}>
-          Reset
-        </button>
-      )}
     </>
   );
 };

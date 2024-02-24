@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 
-const Feedback = ({ value, totalFeedback }) => {
-  const positiveFeedback = Math.round(
-    ((value.good + value.neutral) / totalFeedback) * 100
-  );
+const Feedback = ({
+  value: { good = 0, neutral = 0, bad = 0 },
+  totalFeedback,
+}) => {
+  // Обчислення відсотку позитивних відгуків
+  const positiveFeedback = Math.round(((good + neutral) / totalFeedback) * 100);
 
   return (
     <>
-      <p>Good: {value.good}</p>
-      <p>Neutral: {value.neutral}</p>
-      <p>Bad: {value.bad}</p>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
       <p>Total: {totalFeedback}</p>
       <p>Positive: {positiveFeedback}%</p>
     </>
