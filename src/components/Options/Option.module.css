@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.wrapper button {
+    width: 100px;
+}
+
+.good {
+    background-color: rgb(71, 83, 71);
+}
+
+.neutral {
+    background-color: rgb(82, 82, 69);
+}
+
+.bad {
+    background-color: rgb(82, 67, 67);
+}
+
+.reset {
+    margin-top: 8px;
+}
