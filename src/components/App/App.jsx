@@ -45,7 +45,6 @@ function App() {
         resetValue={resetFeedback}
         totalFeedback={totalFeedback}
       />
-      <Feedback value={feedback} totalFeedback={totalFeedback} />
 
       {totalFeedback ? (
         <Feedback value={feedback} totalFeedback={totalFeedback} />
